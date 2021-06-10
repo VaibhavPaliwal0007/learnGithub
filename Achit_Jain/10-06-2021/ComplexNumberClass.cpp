@@ -28,67 +28,71 @@ Note : There is space before and after '+' (plus sign) and no space between
 'i' (iota symbol) and b.
 */
 
-class ComplexNumbers 
+class ComplexNumbers
 {
-    private:
+private:
     int real;
     int imaginary;
 
-    public:
+public:
     ComplexNumbers(int real, int imaginary)
     {
-        this -> real = real;
-        this -> imaginary = imaginary;
+        this->real = real;
+        this->imaginary = imaginary;
     }
 
     void print()
     {
         if (imaginary > 0)
         {
-            std::cout << real << " + i" << imaginary;
+            std::cout << real << " + iota" << imaginary;
         }
 
         else
         {
-            std::cout << real << " - i" << -imaginary;
+            std::cout << real << " - iota" << -imaginary;
         }
     }
 
-    void plus(ComplexNumbers const & c2)
+    void plus(ComplexNumbers const &c2)
     {
-        this -> real = this -> real + c2.real;
-        this -> imaginary = this -> imaginary + c2.imaginary;
+        this->real = this->real + c2.real;
+        this->imaginary = this->imaginary + c2.imaginary;
     }
 
-    void multiply(ComplexNumbers const & c2)
+    void multiply(ComplexNumbers const &c2)
     {
-        int a1 = this -> real;
-        this -> real = (this -> real * c2.real) - (this -> imaginary * c2.imaginary);
-        this -> imaginary = (a1 * c2.imaginary) + (c2.real * this -> imaginary);
+        int a1 = this->real;
+        this->real = (this->real * c2.real) - (this->imaginary * c2.imaginary);
+        this->imaginary = (a1 * c2.imaginary) + (c2.real * this->imaginary);
     }
 };
 
-int main() {
+int main()
+{
     int real1, imaginary1, real2, imaginary2;
-    
+
     cin >> real1 >> imaginary1;
     cin >> real2 >> imaginary2;
-    
+
     ComplexNumbers c1(real1, imaginary1);
     ComplexNumbers c2(real2, imaginary2);
-    
+
     int choice;
     cin >> choice;
-    
-    if(choice == 1) {
+
+    if (choice == 1)
+    {
         c1.plus(c2);
         c1.print();
     }
-    else if(choice == 2) {
+    else if (choice == 2)
+    {
         c1.multiply(c2);
         c1.print();
     }
-    else {
+    else
+    {
         return 0;
-    }   
+    }
 }
